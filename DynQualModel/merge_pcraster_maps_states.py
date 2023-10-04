@@ -288,7 +288,7 @@ for fileName in list(files.keys()):
     outputFileName= os.path.join(outputDir,fileName)
     for area in areas:
         #~ print area
-        inputFileName= os.path.join(inputDirRoot, area, 'maps', fileName)
+        inputFileName= os.path.join(inputDirRoot, area, 'states', fileName)
         if sys.argv[3] == "default": inputFileName = os.path.join(inputDirRoot, area, 'maps',   fileName)
         if sys.argv[3] == "maps"   : inputFileName = os.path.join(inputDirRoot, area, 'maps',   fileName)
         if sys.argv[3] == "states" : inputFileName = os.path.join(inputDirRoot, area, 'states', fileName)
