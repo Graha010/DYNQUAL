@@ -4,7 +4,7 @@
 #SBATCH -N 1
 
 # we use all cores
-#SBATCH -n 196
+#SBATCH -n 128
 
 # activate the following if we want to reserve the entire node (which is the case if -n 96)
 #SBATCH --exclusive
