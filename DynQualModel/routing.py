@@ -60,7 +60,7 @@ class Routing(object):
         try:
             result['waterTemperature']        = self.waterTemp                   #  K      ; water temperature
             
-            result['DO']                      = self.OD                          #  mg/L   ; dissolved oxygen
+            result['DO']                      = self.DO                          #  mg/L   ; dissolved oxygen
             
             result['iceThickness']            = self.iceThickness                #  m      ; ice thickness
             result['routedTDS']               = self.routedTDS                   #  g TDS  ; routed TDS load (for conversion to salinity pollution in mg/L)
@@ -633,8 +633,8 @@ class Routing(object):
         if self.quality:
             self.waterTemp             = pcr.ifthen(self.landmask, pcr.cover(self.waterTemp, 0.0))
 
-            # ~ # - TODO: Shall we cover DO?
-            # ~ self.DO                    = pcr.ifthen(self.DO, pcr.cover(self.DO, 0.0))
+            # - TODO: Shall we cover DO?
+            self.DO                    = pcr.ifthen(self.landmask, pcr.cover(self.DO, 0.0))
 
             self.iceThickness          = pcr.ifthen(self.landmask, pcr.cover(self.iceThickness , 0.0))
             self.channelStorageTimeBefore = self.channelStorage
