@@ -59,6 +59,9 @@ class Routing(object):
         # Water quality elements
         try:
             result['waterTemperature']        = self.waterTemp                   #  K      ; water temperature
+            
+            result['DO']                      = self.OD                          #  mg/L   ; dissolved oxygen
+            
             result['iceThickness']            = self.iceThickness                #  m      ; ice thickness
             result['routedTDS']               = self.routedTDS                   #  g TDS  ; routed TDS load (for conversion to salinity pollution in mg/L)
             result['routedBOD']               = self.routedBOD                   #  g BOD  ; routed BOD load (for conversion to organic pollution mg/L)
@@ -532,7 +535,13 @@ class Routing(object):
             # Initial conditions needed for water quality module
             if self.quality:
                 self.waterTemp    = vos.readPCRmapClone(iniItems.routingOptions['waterTemperatureIni'],self.cloneMap,self.tmpDir,self.inputDir)
-                self.DO = (1-0.0001148*self.elevation)*exp(-139.34411+(157570.1)/(self.waterTemp)-(66423080)/(self.waterTemp**2)+(12438000000)/(self.waterTemp**3)-(862194900000)/(self.waterTemp**4))
+
+                # ~ # unpolluted DO
+                # ~ self.DO = (1-0.0001148*self.elevation)*exp(-139.34411+(157570.1)/(self.waterTemp)-(66423080)/(self.waterTemp**2)+(12438000000)/(self.waterTemp**3)-(862194900000)/(self.waterTemp**4))
+
+                # DO from the file
+                self.DO = vos.readPCRmapClone(iniItems.routingOptions['DOIni'],self.cloneMap,self.tmpDir,self.inputDir)
+
                 self.iceThickness   = vos.readPCRmapClone(iniItems.routingOptions['iceThicknessIni'],self.cloneMap,self.tmpDir,self.inputDir)
                 self.routedTDS = vos.readPCRmapClone(iniItems.routingOptions['routedTDSIni'],self.cloneMap,self.tmpDir,self.inputDir) #initial conditions for salinity pollution
                 self.routedBOD = vos.readPCRmapClone(iniItems.routingOptions['routedBODIni'],self.cloneMap,self.tmpDir,self.inputDir) #initial conditions for organic pollution
@@ -576,6 +585,9 @@ class Routing(object):
             # Initial conditions needed for water quality module
             if self.quality:
                 self.waterTemp               = iniConditions['routing']['waterTemperature']
+
+                self.DO                      = iniConditions['routing']['DO']
+
                 self.iceThickness            = iniConditions['routing']['iceThickness']
                 self.routedTDS               = iniConditions['routing']['routedTDS']
                 self.routedBOD               = iniConditions['routing']['routedBOD']
@@ -620,6 +632,10 @@ class Routing(object):
 
         if self.quality:
             self.waterTemp             = pcr.ifthen(self.landmask, pcr.cover(self.waterTemp, 0.0))
+
+            # ~ # - TODO: Shall we cover DO?
+            # ~ self.DO                    = pcr.ifthen(self.DO, pcr.cover(self.DO, 0.0))
+
             self.iceThickness          = pcr.ifthen(self.landmask, pcr.cover(self.iceThickness , 0.0))
             self.channelStorageTimeBefore = self.channelStorage
             self.totEW = self.channelStorage * self.waterTemp*self.specificHeatWater * self.densityWater
