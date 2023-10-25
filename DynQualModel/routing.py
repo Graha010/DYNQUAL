@@ -635,8 +635,8 @@ class Routing(object):
         if self.quality:
             self.waterTemp             = pcr.ifthen(self.landmask, pcr.cover(self.waterTemp, 0.0))
 
-            # - TODO: Shall we cover DO?
-            self.DO                    = pcr.ifthen(self.landmask, pcr.cover(self.DO, 0.0))
+            # ~ # - TODO: Shall we cover DO?
+            # ~ self.DO                    = pcr.ifthen(self.landmask, pcr.cover(self.DO, 0.0))
 
             self.iceThickness          = pcr.ifthen(self.landmask, pcr.cover(self.iceThickness , 0.0))
             self.channelStorageTimeBefore = self.channelStorage
