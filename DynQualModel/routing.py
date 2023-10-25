@@ -536,13 +536,13 @@ class Routing(object):
             if self.quality:
                 self.waterTemp    = vos.readPCRmapClone(iniItems.routingOptions['waterTemperatureIni'],self.cloneMap,self.tmpDir,self.inputDir)
 
-                # ~ # unpolluted DO
-                # ~ self.DO = (1-0.0001148*self.elevation)*exp(-139.34411+(157570.1)/(self.waterTemp)-(66423080)/(self.waterTemp**2)+(12438000000)/(self.waterTemp**3)-(862194900000)/(self.waterTemp**4))
+                # unpolluted DO
+                self.DO = (1-0.0001148*self.elevation)*exp(-139.34411+(157570.1)/(self.waterTemp)-(66423080)/(self.waterTemp**2)+(12438000000)/(self.waterTemp**3)-(862194900000)/(self.waterTemp**4))
 
-                # DO from the file
-                self.DO = vos.readPCRmapClone(iniItems.routingOptions['DOIni'],self.cloneMap,self.tmpDir,self.inputDir)
+                # ~ # DO from the file
+                # ~ self.DO = vos.readPCRmapClone(iniItems.routingOptions['DOIni'],self.cloneMap,self.tmpDir,self.inputDir)
 
-                self.DO = pcr.scalar(0.0)
+                # ~ self.DO = pcr.scalar(0.0)
 
                 self.iceThickness   = vos.readPCRmapClone(iniItems.routingOptions['iceThicknessIni'],self.cloneMap,self.tmpDir,self.inputDir)
                 self.routedTDS = vos.readPCRmapClone(iniItems.routingOptions['routedTDSIni'],self.cloneMap,self.tmpDir,self.inputDir) #initial conditions for salinity pollution
