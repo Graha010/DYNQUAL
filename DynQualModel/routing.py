@@ -542,6 +542,8 @@ class Routing(object):
                 # DO from the file
                 self.DO = vos.readPCRmapClone(iniItems.routingOptions['DOIni'],self.cloneMap,self.tmpDir,self.inputDir)
 
+                self.DO = pcr.scalar(0.0)
+
                 self.iceThickness   = vos.readPCRmapClone(iniItems.routingOptions['iceThicknessIni'],self.cloneMap,self.tmpDir,self.inputDir)
                 self.routedTDS = vos.readPCRmapClone(iniItems.routingOptions['routedTDSIni'],self.cloneMap,self.tmpDir,self.inputDir) #initial conditions for salinity pollution
                 self.routedBOD = vos.readPCRmapClone(iniItems.routingOptions['routedBODIni'],self.cloneMap,self.tmpDir,self.inputDir) #initial conditions for organic pollution
