@@ -2108,7 +2108,7 @@ class Routing(object):
     def readExtensiveMeteo(self, currTimeStep):
         #Read meteorological input directly from netCDF files
         
-        if currTimeStep.day == 1:
+        if currTimeStep.day == 1 or currTimeStep.StepPCR == 1:
             self.cloudCover = vos.netcdf2PCRobjClone(\
                                      self.cloudFileNC,'cld',\
                                      str(currTimeStep.fulldate), 
