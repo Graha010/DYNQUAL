@@ -120,8 +120,6 @@ def main():
 
         print(configuration.globalOptions['cloneMap'])
 
-        just_quit
-
         # note that 'outputDir' has been set by the function "modify_ini_file"
 
     # timeStep info: year, month, day, doy, hour, etc
