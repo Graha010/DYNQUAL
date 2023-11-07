@@ -2,6 +2,9 @@
 # job script template file
 JOB_TEMPLATE_FILE=runDynQual_global_on_snellius.sh
 
+# main output folder
+MAIN_OUTPUT_FOLDER="/gpfs/work4/0/einf6448/users/edwinoxy/test_dynqual_d02/"
+
 # the variables/files that are the same for the entire period
 IRRIGATION_AREA_FILE="/gpfs/work4/0/dynql/input/waterUse/irrigated_areas_ssp3_2000-2050.nc"
 DOM_WATER_DEMAND_FILE="/gpfs/work4/0/dynql/input/waterUse/domestic_water_demand_ssp3_2000-2100.nc"
@@ -14,7 +17,7 @@ START_DATE="2005-01-01"
 # - for testing
 START_DATE="2014-12-29"
 END_DATE="2014-12-31"
-OUTPUT_FOLDER="/gpfs/work4/0/einf6448/test/duncan/2005-2014/"
+OUTPUT_FOLDER=${MAIN_OUTPUT_FOLDER}"/2005-2014/"
 PRE_FILE="/gpfs/work4/0/dynql/input/forcing/GCM/CMIP6/GFDL/historical/gfdl-esm4_w5e5_historical_pr_global_daily_1850_2014_mday-1.nc"
 TMP_FILE="/gpfs/work4/0/dynql/input/forcing/GCM/CMIP6/GFDL/historical/gfdl-esm4_w5e5_historical_tas_global_daily_1850_2014_C.nc"
 ET0_FILE="/gpfs/work4/0/dynql/input/forcing/GCM/CMIP6/GFDL/historical/gfdl-esm4_w5e5_historical_pet_global_daily_1979_2014_mday-1.nc"
@@ -40,7 +43,7 @@ INITIAL_CONDITION_FOLDER=${PREVIOUS_OUTPUT_FOLDER}"/global/states/"
 DATE_FOR_INITIAL_STATES=${END_DATE}
 START_DATE="2015-01-01"
 END_DATE="2020-12-31"
-OUTPUT_FOLDER="/gpfs/work4/0/einf6448/test/duncan/2015-2020/"
+OUTPUT_FOLDER=${MAIN_OUTPUT_FOLDER}"/2015-2020/"
 # - submit the first period job (2015-2020)
 PREVJOB=${JOBNAME}
 JOBNAME="2015-2020""_DYNQUAL_SSP3_GFDL"
@@ -58,7 +61,7 @@ DATE_FOR_INITIAL_STATES=${END_DATE}
 START_DATE=${STA_YEAR}"-01-01"
 END_YEAR=$((x=${STA_YEAR}, y=9, x+y))
 END_DATE=${END_YEAR}"-12-31"
-OUTPUT_FOLDER="/gpfs/work4/0/einf6448/test/duncan/"${STA_YEAR}"-"${END_YEAR}"/"
+OUTPUT_FOLDER=${MAIN_OUTPUT_FOLDER}"/"${STA_YEAR}"-"${END_YEAR}"/"
 # - submit the job (20XX-20YY)
 PREVJOB=${JOBNAME}
 JOBNAME=${STA_YEAR}"-"${END_YEAR}"_DYNQUAL_SSP3_GFDL"
