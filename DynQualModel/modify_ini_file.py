@@ -65,7 +65,7 @@ def modify_ini_file(original_ini_file,
          # for the output directory
          if var == "-mod":
 			 
-			 output_dir = assigned_string
+             output_dir = assigned_string
 
              # parallel option
              this_run_is_part_of_a_set_of_parallel_run = False    
