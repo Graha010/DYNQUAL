@@ -109,6 +109,11 @@ def main():
     if this_run_is_part_of_a_set_of_parallel_run:
         # modfiying clone-map and landmask (based on the given system arguments)
         clone_code = int(sys.argv[3])
+        
+        print(clone_code)
+        
+        just_quit
+        
         configuration.globalOptions['cloneMap']   = configuration.globalOptions['cloneMap'] %(clone_code)
         configuration.globalOptions['landmask']   = configuration.globalOptions['landmask'] %(clone_code)
         # note that 'outputDir' has been set by the function "modify_ini_file"
