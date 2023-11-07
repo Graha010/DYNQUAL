@@ -9,8 +9,11 @@
 # we use 64 cores (1/3 of genoa node, maximum memory: 112 GB)
 #SBATCH -n 64
 
-#SBATCH -t 119:59:00
-## this is the time, maximum 120:00:00 hours
+#~ #SBATCH -t 119:59:00
+#~ ## this is the time, maximum 120:00:00 hours
+
+#SBATCH -t 59:00
+## for testing, set it shorter than 1 hour
 
 # job name
 #SBATCH -J dynqual
