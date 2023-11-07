@@ -43,6 +43,7 @@ from spinUp import SpinUp
 from pcrglobwb import PCRGlobWB
 
 from modify_ini_file import *
+import virtualOS as vos
 
     
 ####----------------------------------------####
