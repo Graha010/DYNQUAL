@@ -108,14 +108,20 @@ def main():
    # for a parallel run (usually 5 arcmin), we assign the following based on the clone number/code:
     if this_run_is_part_of_a_set_of_parallel_run:
         # modfiying clone-map and landmask (based on the given system arguments)
-        clone_code = int(sys.argv[3])
+        
+        clone_code = "M" + str(int(sys.argv[3])
+        if int(sys.argv[3]) < 10: "M0" + str(int(sys.argv[3])
         
         print(clone_code)
-        
-        just_quit
+        print(configuration.globalOptions['cloneMap'])
         
         configuration.globalOptions['cloneMap']   = configuration.globalOptions['cloneMap'] %(clone_code)
         configuration.globalOptions['landmask']   = configuration.globalOptions['landmask'] %(clone_code)
+
+        print(configuration.globalOptions['cloneMap'])
+
+        just_quit
+
         # note that 'outputDir' has been set by the function "modify_ini_file"
 
     # timeStep info: year, month, day, doy, hour, etc
