@@ -98,7 +98,7 @@ def main():
     # object to handle configuration/ini file
     configuration = Configuration(iniFileName = iniFileName, \
                                   debug_mode = debug_mode, \
-                                  no_modification = False)      
+                                  no_modification = True)      
 
     # parallel option
     this_run_is_part_of_a_set_of_parallel_run = False    
