@@ -1433,7 +1433,7 @@ class Routing(object):
             self.readExtensiveMeteo(currTimeStep)
             
             # Input data for pollutant loadings typically provided at monthly resolution
-            if currTimeStep.day == 1:
+            if currTimeStep.day == 1 or currTimeStep.timeStepPCR == 1:
                 self.readPowerplantData(currTimeStep)
             
                 if self.calculateLoads:
@@ -2179,7 +2179,7 @@ class Routing(object):
     def readPowerplantData(self, currTimeStep):
         
         #read power return flows (from Lohrmann et al., 2019)
-        if currTimeStep.day == 1:
+        if currTimeStep.day == 1 or currTimeStep.timeStepPCR == 1:
             logger.info("Reading powerplant data")
             self.PowRF =  vos.netcdf2PCRobjClone(\
                                      self.PowRFNC,'PowRF',\
