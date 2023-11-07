@@ -74,7 +74,7 @@ def modify_ini_file(original_ini_file,
 
          assigned_string  = system_argument[system_argument.index(var) + 1]
          file_ini_content = file_ini_content.replace(ini_variables[var], assigned_string)
-         msg = "The string " + str(ini_variables[var) " in the given configuration file is replaced with the one given after the system argument " +  str(var) + ": "  + assigned_string + "."
+         msg = "The string " + str(ini_variables[var]) " in the given configuration file is replaced with the one given after the system argument " +  str(var) + ": "  + assigned_string + "."
          print(msg)
 
 
