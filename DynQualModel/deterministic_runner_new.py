@@ -109,8 +109,8 @@ def main():
     if this_run_is_part_of_a_set_of_parallel_run:
         # modfiying clone-map and landmask (based on the given system arguments)
         
-        clone_code = "M" + str(int(sys.argv[3])
-        if int(sys.argv[3]) < 10: clone_code = "M0" + str(int(sys.argv[3])
+        clone_code = "M" + str(int(sys.argv[3]))
+        if int(sys.argv[3]) < 10: clone_code = "M0" + str(int(sys.argv[3]))
         
         print(clone_code)
         print(configuration.globalOptions['cloneMap'])
