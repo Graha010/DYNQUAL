@@ -52,7 +52,7 @@ def modify_ini_file(original_ini_file,
              # for a parallel run (usually 5 arcmin), we assign the following based on the clone number/code:
              if this_run_is_part_of_a_set_of_parallel_run:
                  # set the output directory for every clone
-                 clone_code = "%02i" (int(system_argument[3]))
+                 clone_code = "%02i" %(int(system_argument[3]))
                  output_dir = output_dir + "/M" + clone_code + "/"
 
          file_ini_content = file_ini_content.replace(ini_variables[var], assigned_string)
