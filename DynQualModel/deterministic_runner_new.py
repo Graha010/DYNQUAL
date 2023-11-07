@@ -110,7 +110,7 @@ def main():
         # modfiying clone-map and landmask (based on the given system arguments)
         
         clone_code = "M" + str(int(sys.argv[3])
-        if int(sys.argv[3]) < 10: "M0" + str(int(sys.argv[3])
+        if int(sys.argv[3]) < 10: clone_code = "M0" + str(int(sys.argv[3])
         
         print(clone_code)
         print(configuration.globalOptions['cloneMap'])
