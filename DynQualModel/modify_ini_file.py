@@ -8,28 +8,6 @@ import datetime
 import glob
 import shutil
 
-import pcraster as pcr
-from pcraster.framework import DynamicModel
-from pcraster.framework import DynamicFramework
-
-from configuration_for_modflow import Configuration
-from currTimeStep import ModelTime
-
-try:
-    from reporting_for_modflow import Reporting
-except:
-    pass
-
-try:
-    from modflow import ModflowCoupling
-except:
-    pass
-
-import virtualOS as vos
-
-import logging
-logger = logging.getLogger(__name__)
-
 import disclaimer
 
 def modify_ini_file(original_ini_file,
