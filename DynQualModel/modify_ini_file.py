@@ -58,7 +58,7 @@ def modify_ini_file(original_ini_file,
     ini_variables["-dom_fl"]        = "DOM_WATER_DEMAND_FILE"
     ini_variables["-ind_fl"]        = "IND_WATER_DEMAND_FILE"
     
-    for var in ini_variables.keys{}:
+    for var in ini_variables.keys:
          
          # for the output directory
          if var == "-mod": output_dir = assigned_string
