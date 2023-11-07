@@ -32,7 +32,7 @@
 SCRIPT_FOLDER=/home/edwinoxy/github/Graha010/DYNQUAL/DynQualModel/
 
 # configuration (.ini) file
-INI_FILE=/home/edwinoxy/DYNQUAL/ini/global_run/gcm_ssp_runs/DynQual_05min_global_gcm.ini
+INI_FILE=/home/edwinoxy/github/Graha010/DYNQUAL/ini/global_run/gcm_ssp_runs/DynQual_05min_global_gcm.ini
 
 
 # we activate the correct conda environment on eejit and many other settings
