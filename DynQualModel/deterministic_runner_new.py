@@ -118,6 +118,9 @@ def main():
         configuration.globalOptions['cloneMap']   = configuration.globalOptions['cloneMap'] %(clone_code)
         configuration.globalOptions['landmask']   = configuration.globalOptions['landmask'] %(clone_code)
 
+        configuration.cloneMap = vos.getFullPath(configuration.globalOptions['cloneMap'], \
+                                                 configuration.globalOptions['inputDir'])
+
         print(configuration.globalOptions['cloneMap'])
 
         # note that 'outputDir' has been set by the function "modify_ini_file"
