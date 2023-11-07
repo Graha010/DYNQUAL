@@ -99,7 +99,7 @@ def main():
     # object to handle configuration/ini file
     configuration = Configuration(iniFileName = iniFileName, \
                                   debug_mode = debug_mode, \
-                                  no_modification = True)      
+                                  no_modification = False)      
 
     # parallel option
     this_run_is_part_of_a_set_of_parallel_run = False    
@@ -119,12 +119,16 @@ def main():
         configuration.globalOptions['cloneMap']   = configuration.globalOptions['cloneMap'] %(clone_code)
         configuration.globalOptions['landmask']   = configuration.globalOptions['landmask'] %(clone_code)
 
-        configuration.cloneMap = vos.getFullPath(configuration.globalOptions['cloneMap'], \
-                                                 configuration.globalOptions['inputDir'])
+        # modify the configuration based on the above changes
+        configuration.set_configuration()
+
+        # note that 'outputDir' has been set by the function "modify_ini_file"
+        
+        # ~ configuration.cloneMap = vos.getFullPath(configuration.globalOptions['cloneMap'], \
+                                                 # ~ configuration.globalOptions['inputDir'])
 
         print(configuration.globalOptions['cloneMap'])
 
-        # note that 'outputDir' has been set by the function "modify_ini_file"
 
     # timeStep info: year, month, day, doy, hour, etc
     currTimeStep = ModelTime() 
