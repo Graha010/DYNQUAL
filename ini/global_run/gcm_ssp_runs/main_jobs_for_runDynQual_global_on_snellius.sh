@@ -53,7 +53,8 @@ sbatch --dependency=afterany:$(squeue --noheader --format %i --name ${PREVJOB}) 
 
 # set the variable for the remaining jobs and submit them ; we will do this for every 10 year
 
-for STA_YEAR in {2021..2091..10}
+#~ for STA_YEAR in {2021..2091..10}
+for STA_YEAR in {2021..2041..10}
 do
 PREVIOUS_OUTPUT_FOLDER=${OUTPUT_FOLDER}
 INITIAL_CONDITION_FOLDER=${PREVIOUS_OUTPUT_FOLDER}"/global/states/"
