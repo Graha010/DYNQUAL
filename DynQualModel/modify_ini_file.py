@@ -52,6 +52,7 @@ def modify_ini_file(original_ini_file,
                  # set the output directory for every clone
                  clone_code = "%02i" %(int(system_argument[3]))
                  assigned_string = assigned_string + "/M" + clone_code + "/"
+                 output_dir      = assigned_string
 
          file_ini_content = file_ini_content.replace(ini_variables[var], assigned_string)
          msg = "The string " + str(ini_variables[var]) + " in the given configuration file is replaced with the one given after the system argument " +  str(var) + ": "  + assigned_string + "."
