@@ -38,13 +38,11 @@ def modify_ini_file(original_ini_file,
     
     for var in ini_variables.keys():
          
-         assigned_string  = system_argument[system_argument.index(var) + 1]
+         assigned_string = system_argument[system_argument.index(var) + 1]
 
          # for the output directory
          if var == "-mod":
 			 
-             output_dir = assigned_string
-
              # parallel option
              this_run_is_part_of_a_set_of_parallel_run = False    
              if system_argument[2] == "parallel" or system_argument[2] == "debug_parallel": this_run_is_part_of_a_set_of_parallel_run = True
@@ -53,7 +51,7 @@ def modify_ini_file(original_ini_file,
              if this_run_is_part_of_a_set_of_parallel_run:
                  # set the output directory for every clone
                  clone_code = "%02i" %(int(system_argument[3]))
-                 output_dir = output_dir + "/M" + clone_code + "/"
+                 assigned_string = assigned_string + "/M" + clone_code + "/"
 
          file_ini_content = file_ini_content.replace(ini_variables[var], assigned_string)
          msg = "The string " + str(ini_variables[var]) + " in the given configuration file is replaced with the one given after the system argument " +  str(var) + ": "  + assigned_string + "."

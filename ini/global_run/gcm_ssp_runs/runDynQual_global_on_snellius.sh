@@ -56,7 +56,8 @@ cd ${SCRIPT_FOLDER}
 #~ python parallel_pcrglobwb_runner_with_argument.py ${INI_FILE} -mod ${OUTPUT_FOLDER} -sd ${START_DATE} -ed ${END_DATE} -misd ${INITIAL_CONDITION_FOLDER} -dfis ${DATE_FOR_INITIAL_STATES} -pff ${PRE_FILE} -tff ${TMP_FILE} -rpetff ${ET0_FILE} -radff ${RAD_FILE} -tmp_annavg_ff ${TMP_ANNUAL_AVG_FILE} -irr_fl ${IRRIGATION_AREA_FILE} -dom_fl ${DOM_WATER_DEMAND_FILE} -ind_fl ${IND_WATER_DEMAND_FILE}
 
 # - for testing
-for i in {2..4}
+#~ for i in {2..4}
+for i in {2..2}
 #~ # - loop through all clones
 #~ for i in {1..53}
 
