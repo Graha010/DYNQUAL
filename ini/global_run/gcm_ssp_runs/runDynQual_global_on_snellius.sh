@@ -9,16 +9,16 @@
 # we use 64 cores (1/3 of genoa node, maximum memory: 112 GB)
 #SBATCH -n 64
 
-#~ #SBATCH -t 119:59:00
-#~ ## this is the time, maximum 120:00:00 hours
+#SBATCH -t 119:59:00
+## this is the time, maximum 120:00:00 hours
 
-#SBATCH -t 59:00
-## for testing, set it shorter than 1 hour
+#~ #SBATCH -t 59:00
+#~ ## for testing, set it shorter than 1 hour
 
 # job name
 #SBATCH -J dynqual
 
-# exporting some variables - IN PROGRESS
+# exporting some variables
 #SBATCH --export OUTPUT_FOLDER=${OUTPUT_FOLDER},START_DATE=${START_DATE},END_DATE=${END_DATE},PRE_FILE=${PRE_FILE},TMP_FILE=${TMP_FILE},ET0_FILE=${ET0_FILE},RAD_FILE=${RAD_FILE},TMP_ANNUAL_AVG_FILE=${TMP_ANNUAL_AVG_FILE},IRRIGATION_AREA_FILE=${IRRIGATION_AREA_FILE},DOM_WATER_DEMAND_FILE=${DOM_WATER_DEMAND_FILE},IND_WATER_DEMAND_FILE=${IND_WATER_DEMAND_FILE},INITIAL_CONDITION_FOLDER=${INITIAL_CONDITION_FOLDER},DATE_FOR_INITIAL_STATES=${DATE_FOR_INITIAL_STATES}
 
 
@@ -28,10 +28,10 @@
 #~ #SBATCH --mail-user=XXXX@gmail.com
 
 
-# please set where you stored DYNQUAL scripts
+# please set where you stored DYNQUAL scripts - NOTE: Please change this!
 SCRIPT_FOLDER=/home/edwinoxy/github/Graha010/DYNQUAL/DynQualModel/
 
-# configuration (.ini) file
+# configuration (.ini) file - NOTE: Please change this!
 INI_FILE=/home/edwinoxy/github/Graha010/DYNQUAL/ini/global_run/gcm_ssp_runs/DynQual_05min_global_gcm.ini
 
 
@@ -51,9 +51,6 @@ cd ${SCRIPT_FOLDER}
 
 
 # global online run with parallelization
-
-#~ # - old method - DO NOT USE IT!
-#~ python parallel_pcrglobwb_runner_with_argument.py ${INI_FILE} -mod ${OUTPUT_FOLDER} -sd ${START_DATE} -ed ${END_DATE} -misd ${INITIAL_CONDITION_FOLDER} -dfis ${DATE_FOR_INITIAL_STATES} -pff ${PRE_FILE} -tff ${TMP_FILE} -rpetff ${ET0_FILE} -radff ${RAD_FILE} -tmp_annavg_ff ${TMP_ANNUAL_AVG_FILE} -irr_fl ${IRRIGATION_AREA_FILE} -dom_fl ${DOM_WATER_DEMAND_FILE} -ind_fl ${IND_WATER_DEMAND_FILE}
 
 
 # - loop through all clones
